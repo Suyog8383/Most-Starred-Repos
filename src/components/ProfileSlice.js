@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const ProfileSlice = createSlice({
-  name: "profile",
+  name: "profiles",
   initialState,
   reducers: {
     getProfile: (state) => {
@@ -14,7 +14,8 @@ const ProfileSlice = createSlice({
     },
     getProfileSuccess: (state, action) => {
       state.isFetching = false;
-      state.profiles = action.payload.result;
+      state.profiles = action.payload.result.items;
+      console.log("@SN slice", state.profiles);
     },
     getProfileFailed: (state) => {
       state.isFetching = false;
